@@ -15,6 +15,8 @@
 \usepackage{pgfgantt}
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{float}
 
 \newdateformat{monthyeardate}{%
   \monthname[\THEMONTH] \THEYEAR}
@@ -30,10 +32,10 @@
 %                       the general field of study you are considering
 %                       for your review, and name of IRR tutor
 
-\newcommand{\examnumber}{123456789}
-\newcommand{\field}{Whatever I Write About}
-\newcommand{\tutor}{My IRR Tutor}
-\newcommand{\supervisor}{My Project Supervisor}
+\newcommand{\examnumber}{B138641}
+\newcommand{\field}{Benchmarking Data Processing Systems}
+\newcommand{\tutor}{Pablo León-Villagrá}
+\newcommand{\supervisor}{Dr Milos Nikolic}
 
 \begin{document}
 \begin{minipage}[b]{110mm}
@@ -63,8 +65,9 @@
 %                       Insert your abstract HERE
 %                       
 \begin{abstract}
-        The abstract is a short concise outline of your 
-        project proposal, {\bf of no more than 100 words}.
+
+The aim of this project is to examine state-of-the-art graph processing systems and compare their performance and scalability in both local and parallel settings. More specifically, the project focuses on showing that often times scalability comes at a cost, and in many cases such an approach is not worth the time and effort. The claim that in many cases scalability is not the best option  will be supported by conducting several experiments that will demonstrate that a single-core set-up outperforms executions on multi-core environments due to the parallelization overhead that incurs.
+
 \end{abstract}
 
 \vspace*{1cm}
@@ -75,6 +78,8 @@ Date: \today
 \vfill
 {\bf Tutor:} \tutor\\
 {\bf Supervisor:} \supervisor
+\thispagestyle{empty}
+
 \newpage
 
 %                                               Through page and setup 
@@ -88,175 +93,209 @@ Date: \today
 \cfoot{}
 \rfoot{Date: \date{\today}}
 %
-\tableofcontents                                % Makes Table of Contents
+\tableofcontents % Makes Table of Contents
+
+% \newpage
 
 \section{Motivation}
 
-Introduce the topic of research and explain its academic and industrial context.
+% Introduce the topic of research and explain its academic and industrial context.
 
-\begin{itemize}
-    \item Establish the general subject area.
-    \item Describe the broad foundations of your study -- provide adequate background for readers.
-    \item Indicate the general scope of your project.
-    \item Provide an overview of the sections that will appear in your proposal (optional).
-    \item Engage the readers.
-\end{itemize}
+\par Modern computer applications and services have evolved to an extent that they have become difficult to manage. The amount of data handled in such applications is only growing while the industry and the research community have built new systems and infrastructures to be able to keep up with this growth rate. Additionally, applications and services now feature relational data, which are often expressed as graph structures, fact that makes things even more demanding and complicated. \\
+
+\par To extract useful information and perform data analytics tasks, many different graph data processing systems have been developed. Although these systems have been extensively used in various applications, many people argue that their performance is questionable and that there is a massive overhead that incurs due to the way these systems scale. \\
+
+\par Moreover, there is no clear indication of which system is appropriate for each occasion. For this reason, there have been many researchers focusing on creating benchmarking systems in order to evaluate the performance of such systems and observe their strengths and weaknesses in order to be able to choose the appropriate framework for a specific set of tasks. \\
+
+\par This project aims to demonstrate that scalability is not always the best approach by performing various experiments under different conditions. The main goal is to demonstrate how in many cases running such tasks in single node settings is more efficient performance-wise than distributed and multi-node settings. Afterwards, if it is feasible time-wise, a second goal is to indicate how some tasks can be carried out with the use of higher-level systems, such as relational database management systems. \\
+
+\par We will now break down the problem and briefly mention some of its aspects along with how this project contributes to the domain of graph processing and why it is important that such an investigation is conducted. In \hyperref[background]{Section 2} we will discuss necessary and relevant knowledge to the problem's domain. Afterwards, we consider specific parts of our research and analyse steps in \hyperref[methodology]{Section 3}. We then focus on the evaluation of our results which will be detailed in \hyperref[evaluation]{Section 4} and highlight what we expect to see in our results in \hyperref[outcomes]{Section 5}. Lastly, we state a detailed report of the project's plan, its objectives and the deliverables in \hyperref[milestones]{Section 6}. \\
+
+% \begin{itemize}
+%     \item Establish the general subject area.
+%     \item Describe the broad foundations of your study -- provide adequate background for readers.
+%     \item Indicate the general scope of your project.
+%     \item Provide an overview of the sections that will appear in your proposal (optional).
+%     \item Engage the readers.
+% \end{itemize}
 
 \subsection{Problem Statement}
 
-\begin{itemize}
-    \item Answer the question:''What is the gap that needs to be filled?"
-    and/or ''What is the problem that needs to be solved?"
-    \item State the problem clearly early in a paragraph.
-    \item Limit the variables you address in stating your problem.
-    \item Consider bordering the problem as a question.
-\end{itemize}
+% \begin{itemize}
+%     \item Answer the question:''What is the gap that needs to be filled?"
+%     and/or ''What is the problem that needs to be solved?"
+%     \item State the problem clearly early in a paragraph.
+%     \item Limit the variables you address in stating your problem.
+%     \item Consider bordering the problem as a question.
+% \end{itemize}
 
 \subsection{Research Hypothesis and Objectives}
 
-Identify the overall aims of the project and the individual measurable objectives against which you would wish the outcome of the work to be assessed. Clearly spell out any research hypothesis you are following.
+% Identify the overall aims of the project and the individual measurable objectives against which you would wish the outcome of the work to be assessed. Clearly spell out any research hypothesis you are following.
 
-Include a justification (rationale) for the study. Be clear about what your study will not address.
+% Include a justification (rationale) for the study. Be clear about what your study will not address.
 
 \subsection{Timeliness and Novelty}
 
-Explain why the proposed research is of sufficient timeliness and novelty
+% Explain why the proposed research is of sufficient timeliness and novelty
 
 \subsection{Significance}
 
-The proposal should demonstrate the originality of your intended research. You should therefore explain why your research is important (for example, by explaining how your research builds on and adds to the current state of knowledge in the field or by setting out reasons why it is timely to research your proposed topic) and providing details of any immediate applications, including further research that might be done to build on your findings.
+% The proposal should demonstrate the originality of your intended research. You should therefore explain why your research is important (for example, by explaining how your research builds on and adds to the current state of knowledge in the field or by setting out reasons why it is timely to research your proposed topic) and providing details of any immediate applications, including further research that might be done to build on your findings.
 
 \subsection{Feasibility}
 
-Comment on the feasibility of the research plans given its limited time frame and resources. Outline your plans for a feasibility study before starting e.g.\ major implementation work.
+% Comment on the feasibility of the research plans given its limited time frame and resources. Outline your plans for a feasibility study before starting e.g.\ major implementation work.
 
 \subsection{Beneficiaries}
 
-Describe how the research will benefit other researchers in the field and in related disciplines. What will be done to ensure that they can benefit? 
+The outcome of this work will have an impact on the graph research community, as well as on developers/analysts who use such systems to perform their (graph) data analysis tasks. In detail, the results will provide insight as to whether an approach that involves distributed processing systems is needed, or if a more simple single-core implementation is more preferable.
+
+% Describe how the research will benefit other researchers in the field and in related disciplines. What will be done to ensure that they can benefit? 
 
 
-\section{Background}
+\section{Background} \label{background}
 
-Demonstrate a knowledge and understanding of past and current work in the subject area, including relevant references like this \cite{template}.
+Modern applications and services handle a vast amount of 
+The rise of interest in graph data has led the Lately there has been a lot of research around graph data processing due to the fact that 
 
-\section{Programme and Methodology}
+% Demonstrate a knowledge and understanding of past and current work in the subject area, including relevant references like this \cite{template}.
 
-\begin{itemize}
-    \item Detail the methodology to be used in pursuit of the research and justify this choice.
-    \item Describe your contributions and novelty and where you
-    will go beyond the state-of-the-art (new methods, new tools,
-    new data, new insights, new proofs,...)
-    \item Describe the programme of work, indicating the research to be undertaken and the milestones that can be used to measure its progress.
-    \item Where suitable define work packages and define the dependences
-    between these work packages. WPs and their dependences should be
-    shown in the Gantt chart in the research plan.
-    \item Explain how the project will be managed.
-    \item State the limitations of your research.
-\end{itemize}
+% \section{Programme and Methodology} \label{methodology}
+\section{Methodology} \label{methodology}
 
-\section{Evaluation}
+% \begin{itemize}
+%     \item Detail the methodology to be used in pursuit of the research and justify this choice.
+%     \item Describe your contributions and novelty and where you
+%     will go beyond the state-of-the-art (new methods, new tools,
+%     new data, new insights, new proofs,...)
+%     \item Describe the programme of work, indicating the research to be undertaken and the milestones that can be used to measure its progress.
+%     \item Where suitable define work packages and define the dependences
+%     between these work packages. WPs and their dependences should be
+%     shown in the Gantt chart in the research plan.
+%     \item Explain how the project will be managed.
+%     \item State the limitations of your research.
+% \end{itemize}
 
-\begin{itemize}
-    \item Describe the specific methods of data collection.
-    \item Explain how you intent to analyse and interpret the results.
-\end{itemize}
+\section{Evaluation} \label{evaluation}
 
-\section{Expected Outcomes}
+% \begin{itemize}
+%     \item Describe the specific methods of data collection.
+%     \item Explain how you intent to analyse and interpret the results.
+% \end{itemize}
 
-Conclude your research proposal by addressing your predicted outcomes. What are you hoping to prove/disprove? Indicate how you envisage your research will contribute to debates and discussions in your particular subject area:
+\section{Expected Outcomes} \label{outcomes}
 
-\begin{itemize}
-    \item How will your research make an original contribution to knowledge?
-    \item How might it fill gaps in existing work? 
-    \item How might it extend understanding of particular topics?
-\end{itemize}
+% Conclude your research proposal by addressing your predicted outcomes. What are you hoping to prove/disprove? Indicate how you envisage your research will contribute to debates and discussions in your particular subject area:
+
+% \begin{itemize}
+%     \item How will your research make an original contribution to knowledge?
+%     \item How might it fill gaps in existing work? 
+%     \item How might it extend understanding of particular topics?
+% \end{itemize}
 
 
-\section{Research Plan, Milestones and Deliverables}
+\section{Research Plan, Milestones and Deliverables} \label{milestones}
 
 \definecolor{barblue}{RGB}{153,204,254}
 \definecolor{groupblue}{RGB}{51,102,254}
-\definecolor{linkred}{RGB}{165,0,33} 
+\definecolor{linkred}{RGB}{165,0,33}
 
-\begin{figure}[htbp]
-\begin{ganttchart}[
-    y unit title=0.4cm,
-    y unit chart=0.5cm,
-    vgrid,hgrid,
-    x unit=1.55mm,
-    time slot format=isodate,
-    title/.append style={draw=none, fill=barblue},
-    title label font=\sffamily\bfseries\color{white},
-    title label node/.append style={below=-1.6ex},
-    title left shift=.05,
-    title right shift=-.05,
-    title height=1,
-    bar/.append style={draw=none, fill=groupblue},
-    bar height=.6,
-    bar label font=\normalsize\color{black!50},
-    group right shift=0,
-    group top shift=.6,
-    group height=.3,
-    group peaks height=.2,
-    bar incomplete/.append style={fill=green}
-   ]{2018-06-01}{2018-08-16}
-   \gantttitlecalendar{month=name}\\
-   \ganttbar[
-    progress=100,
-    bar progress label font=\small\color{barblue},
-    bar progress label node/.append style={right=4pt},
-    bar label font=\normalsize\color{barblue},
-    name=pp
-   ]{Background Reading}{2018-06-01}{2018-06-14} \\
-\ganttset{progress label text={}, link/.style={black, -to}}
-\ganttgroup{Objective 1}{2018-06-14}{2018-06-30} \\
-\ganttbar[progress=4, name=T1A]{Task A}{2018-06-14}{2018-06-21} \\
-\ganttlinkedbar[progress=0]{Task B}{2018-06-21}{2018-06-30} \\
-\ganttgroup{Objective 2}{2018-07-01}{2018-07-14} \\
-\ganttbar[progress=15, name=T2A]{Task A}{2018-07-01}{2018-07-07} \\
-\ganttlinkedbar[progress=0]{Task B}{2018-07-07}{2018-07-14} \\
-\ganttgroup{Dissertation    }{2018-07-14}{2018-08-16} \\
-  \ganttbar[progress=0]{Task A}{2018-07-14}{2018-08-16}
-  \ganttset{link/.style={green}}
-  \ganttlink[link mid=.4]{pp}{T1A}
-  \ganttlink[link mid=.159]{pp}{T2A}
-\end{ganttchart}
-\caption{Gantt Chart of the activities defined for this project.}
-\label{fig:gantt}
-\end{figure}
+The project will be completed once the following tasks have been accomplished:
+\begin{itemize}
+    \item Determining all systems that will be examined
+    \item Selecting necessary data sets/algorithms/workloads to perform experiments
+    \item Conducting experiments in a single-core setting, as well as in multi-core settings (eventually scale up)
+    \item Gathering results and comparing performances
+    
+\end{itemize}
 
-\begin{table}[htbp]
-    \begin{center}
-        \begin{tabular}{|c|c|l|}
-        \hline
-        \textbf{Milestone} & \textbf{Week} & \textbf{Description} \\
-        \hline
-        $M_1$ & 2 & Feasibility study completed \\
-        $M_2$ & 5 & First prototype implementation completed \\
-        $M_3$ & 7 & Evaluation completed \\
-        $M_4$ & 10 & Submission of dissertation \\
-        \hline
-        \end{tabular} 
-    \end{center}
-    \caption{Milestones defined in this project.}
-    \label{fig:milestones}
-\end{table}
+Some concerns of the project are the following:
+\begin{itemize}
+    \item Will the experiments produce the desired figures?
+    \item Will there be an obvious difference in performance between the two examined cases?
+    \item Will we have access to more resources (e.g. a cluster)?
+\end{itemize}
 
-\begin{table}[htbp]
-    \begin{center}
-        \begin{tabular}{|c|c|l|}
-        \hline
-        \textbf{Deliverable} & \textbf{Week} & \textbf{Description} \\
-        \hline
-        $D_1$ & 6 & Software tool for \dots\\
-        $D_2$ & 8 & Evaluation report on \dots\\
-        $D_3$ & 10 & Dissertation \\
-        \hline
-        \end{tabular} 
-    \end{center}
-    \caption{List of deliverables defined in this project.}
-    \label{fig:deliverables}
-\end{table}
+% \begin{figure}[H]
+% \begin{ganttchart}[
+%     y unit title=0.4cm,
+%     y unit chart=0.5cm,
+%     vgrid,hgrid,
+%     x unit=1.55mm,
+%     time slot format=isodate,
+%     title/.append style={draw=none, fill=barblue},
+%     title label font=\sffamily\bfseries\color{white},
+%     title label node/.append style={below=-1.6ex},
+%     title left shift=.05,
+%     title right shift=-.05,
+%     title height=1,
+%     bar/.append style={draw=none, fill=groupblue},
+%     bar height=.6,
+%     bar label font=\normalsize\color{black!50},
+%     group right shift=0,
+%     group top shift=.6,
+%     group height=.3,
+%     group peaks height=.2,
+%     bar incomplete/.append style={fill=green}
+%   ]{2018-06-01}{2018-08-16}
+%   \gantttitlecalendar{month=name}\\
+%   \ganttbar[
+%     progress=100,
+%     bar progress label font=\small\color{barblue},
+%     bar progress label node/.append style={right=4pt},
+%     bar label font=\normalsize\color{barblue},
+%     name=pp
+%   ]{Background Reading}{2018-06-01}{2018-06-14} \\
+% \ganttset{progress label text={}, link/.style={black, -to}}
+% \ganttgroup{Objective 1}{2018-06-14}{2018-06-30} \\
+% \ganttbar[progress=4, name=T1A]{Task A}{2018-06-14}{2018-06-21} \\
+% \ganttlinkedbar[progress=0]{Task B}{2018-06-21}{2018-06-30} \\
+% \ganttgroup{Objective 2}{2018-07-01}{2018-07-14} \\
+% \ganttbar[progress=15, name=T2A]{Task A}{2018-07-01}{2018-07-07} \\
+% \ganttlinkedbar[progress=0]{Task B}{2018-07-07}{2018-07-14} \\
+% \ganttgroup{Dissertation    }{2018-07-14}{2018-08-16} \\
+%   \ganttbar[progress=0]{Task A}{2018-07-14}{2018-08-16}
+%   \ganttset{link/.style={green}}
+%   \ganttlink[link mid=.4]{pp}{T1A}
+%   \ganttlink[link mid=.159]{pp}{T2A}
+% \end{ganttchart}
+% \caption{Gantt Chart of the activities defined for this project.}
+% \label{fig:gantt}
+% \end{figure}
+
+% \begin{table}[H]
+%     \begin{center}
+%         \begin{tabular}{|c|c|l|}
+%         \hline
+%         \textbf{Milestone} & \textbf{Week} & \textbf{Description} \\
+%         \hline
+%         $M_1$ & 2 & Feasibility study completed \\
+%         $M_2$ & 5 & First prototype implementation completed \\
+%         $M_3$ & 7 & Evaluation completed \\
+%         $M_4$ & 10 & Submission of dissertation \\
+%         \hline
+%         \end{tabular} 
+%     \end{center}
+%     \caption{Milestones defined in this project.}
+%     \label{fig:milestones}
+% \end{table}
+
+% \begin{table}[H]
+%     \begin{center}
+%         \begin{tabular}{|c|c|l|}
+%         \hline
+%         \textbf{Deliverable} & \textbf{Week} & \textbf{Description} \\
+%         \hline
+%         $D_1$ & 6 & Software tool for \dots\\
+%         $D_2$ & 8 & Evaluation report on \dots\\
+%         $D_3$ & 10 & Dissertation \\
+%         \hline
+%         \end{tabular} 
+%     \end{center}
+%     \caption{List of deliverables defined in this project.}
+%     \label{fig:deliverables}
+% \end{table}
 
 
 %                Now build the reference list
