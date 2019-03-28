@@ -33,7 +33,7 @@
 %                       for your review, and name of IRR tutor
 
 \newcommand{\examnumber}{B138641}
-\newcommand{\field}{Benchmarking Data Processing Systems}
+\newcommand{\field}{Benchmarking Graph Processing Systems}
 \newcommand{\tutor}{Pablo León-Villagrá}
 \newcommand{\supervisor}{Dr Milos Nikolic}
 
@@ -66,7 +66,9 @@
 %                       
 \begin{abstract}
 
-The aim of this project is to examine state-of-the-art graph processing systems and compare their performance and scalability in both local and parallel settings. More specifically, the project focuses on showing that often times scalability comes at a cost, and in many cases such an approach is not worth the time and effort. The claim that in many cases scalability is not the best option  will be supported by conducting several experiments that will demonstrate that a single-core set-up outperforms executions on multi-core environments due to the parallelization overhead that incurs.
+The aim of this project is to examine state-of-the-art graph processing systems and compare their performance and scalability in both local and parallel settings. More specifically, the project focuses on showing that often times scalability comes at a cost, and in many cases such an approach is not worth the time and effort. In this research project we will prove this by conducting several experiments that will demonstrate that a single-core set-up outperforms executions on multi-core environments due to the parallelization overhead that incurs.
+
+
 
 \end{abstract}
 
@@ -97,19 +99,27 @@ Date: \today
 
 % \newpage
 
-\section{Motivation}
+\section{Introduction} \label{introduction}
 
 % Introduce the topic of research and explain its academic and industrial context.
 
-\par Modern computer applications and services have evolved to an extent that they have become difficult to manage. The amount of data handled in such applications is only growing while the industry and the research community have built new systems and infrastructures to be able to keep up with this growth rate. Additionally, applications and services now feature relational data, which are often expressed as graph structures, fact that makes things even more demanding and complicated. \\
+\par Modern computer applications and services have evolved to an extent that they have become difficult to manage. The amount of data handled in such applications is only growing while the industry and the research community have built new systems and infrastructures to be able to keep up with this growth rate. Additionally, applications and services now feature relational data, which are often expressed as graph structures, fact that makes things even more demanding and complicated.
 
-\par To extract useful information and perform data analytics tasks, many different graph data processing systems have been developed. Although these systems have been extensively used in various applications, many people argue that their performance is questionable and that there is a massive overhead that incurs due to the way these systems scale. \\
+\medskip
 
-\par Moreover, there is no clear indication of which system is appropriate for each occasion. For this reason, there have been many researchers focusing on creating benchmarking systems in order to evaluate the performance of such systems and observe their strengths and weaknesses in order to be able to choose the appropriate framework for a specific set of tasks. \\
+\par To extract useful information and perform data analytics tasks, many different graph data processing systems have been developed. Although these systems have been extensively used in various applications, many people argue that their performance is questionable and that there is a massive overhead that incurs due to the way these systems scale.
 
-\par This project aims to demonstrate that scalability is not always the best approach by performing various experiments under different conditions. The main goal is to demonstrate how in many cases running such tasks in single node settings is more efficient performance-wise than distributed and multi-node settings. Afterwards, if it is feasible time-wise, a second goal is to indicate how some tasks can be carried out with the use of higher-level systems, such as relational database management systems. \\
+\medskip
 
-\par We will now break down the problem and briefly mention some of its aspects along with how this project contributes to the domain of graph processing and why it is important that such an investigation is conducted. In \hyperref[background]{Section 2} we will discuss necessary and relevant knowledge to the problem's domain. Afterwards, we consider specific parts of our research and analyse steps in \hyperref[methodology]{Section 3}. We then focus on the evaluation of our results which will be detailed in \hyperref[evaluation]{Section 4} and highlight what we expect to see in our results in \hyperref[outcomes]{Section 5}. Lastly, we state a detailed report of the project's plan, its objectives and the deliverables in \hyperref[milestones]{Section 6}. \\
+\par Moreover, there is no clear indication of which system is appropriate for each occasion. For this reason, there have been many researchers focusing on creating benchmarking systems in order to evaluate the performance of such systems and observe their strengths and weaknesses.
+
+\medskip
+
+\par While research on benchmarking graph processing systems has provided information about the performance of several graph processing systems, it tends to be quite specific and concerns certain aspects of these frameworks. This project was motivated by the need for a more thorough investigation that covers a broader range of cases and systems. Our research aims at showing that scalability is not always the best approach by performing various experiments under different conditions, that is, measuring performance using many different algorithms, systems and other parameters. The main goal is to demonstrate how in many cases running such tasks in single node settings is more efficient performance-wise than distributed and multi-node settings. Afterwards, if it is feasible time-wise, a second goal is to indicate how some tasks can be carried out with the use of higher-level systems, such as relational database management systems.
+
+\medskip
+
+\par We will now break down the problem and briefly mention some of its aspects along with how this project contributes to the domain of graph processing and why it is important that such an investigation is conducted. In \hyperref[background]{Section 2} we will discuss necessary and relevant knowledge to the problem's domain. Afterwards, we consider specific parts of our research and analyse steps in \hyperref[methodology]{Section 3}. We then focus on the evaluation of our results which will be detailed in \hyperref[evaluation]{Section 4} and highlight what we expect to see in our results in \hyperref[outcomes]{Section 5}. Lastly, we state a detailed report of the project's plan, its objectives and the deliverables in \hyperref[milestones]{Section 6}.
 
 % \begin{itemize}
 %     \item Establish the general subject area.
@@ -119,7 +129,9 @@ Date: \today
 %     \item Engage the readers.
 % \end{itemize}
 
-\subsection{Problem Statement}
+\subsection{Problem Statement} \label{problem-statement}
+
+\par While there is research on individual graph processing systems that measures performance under certain circumstances, there hasn't been extensive work that exposes a more objective benchmark for these systems' performance, such as one that features the use of a wide variety of algorithms, multiple set-ups that range from one to many cores, as well as more realistic use cases. Our work focuses on these aspects and will try to provide a more broad benchmark that will be able to better indicate if such systems are worth using and, if so, under which settings.
 
 % \begin{itemize}
 %     \item Answer the question:''What is the gap that needs to be filled?"
@@ -131,38 +143,66 @@ Date: \today
 
 \subsection{Research Hypothesis and Objectives}
 
+\par Our hypothesis is that graph processing systems do not scale as well as they claim to do for common tasks. We were able to identify these common tasks and other useful information form a survey \cite{survey}. Moreover, this survey revealed how the graph research community and the industry perform their analysis tasks, as well as what data they use, what kind of algorithms they run, and so forth; all these were very helpful for formulating our objectives.
+
+\medskip
+
+\par We aim to support our hypothesis by conducting experiments that will demonstrate how the selected graph processing systems perform in single-core settings, as well as when scaled up, and hope to show through our results that for common tasks executions in single-core settings perform better.
+
 % Identify the overall aims of the project and the individual measurable objectives against which you would wish the outcome of the work to be assessed. Clearly spell out any research hypothesis you are following.
 
 % Include a justification (rationale) for the study. Be clear about what your study will not address.
 
 \subsection{Timeliness and Novelty}
 
+\par Advances in technology nowadays have become more sophisticated and involve an extensive amount of data processing, a lot of which is expressed via graph representations. The popularity of this domain is constantly growing, given that more and more researchers and companies analyse graph data and perform graph processing tasks. Consequently, carrying out this research at this point is crucial since it will provide insights and indications as to how analyses and graph processing tasks can be performed, which will greatly impact the way researchers and developers approach their problems.
+
 % Explain why the proposed research is of sufficient timeliness and novelty
 
 \subsection{Significance}
+
+Having an indication as to what resources an individual may need before performing their graph data analysis tasks or research is of great significance. The reason for this is that a thorough experimentation that covers many use cases, some of which will probably be similar to the intended task, will help in the process of the decision making with regards to the chosen technologies that will be used, the resources required, and others. This will result to better approaching a problem and providing more timely and efficient solutions.
 
 % The proposal should demonstrate the originality of your intended research. You should therefore explain why your research is important (for example, by explaining how your research builds on and adds to the current state of knowledge in the field or by setting out reasons why it is timely to research your proposed topic) and providing details of any immediate applications, including further research that might be done to build on your findings.
 
 \subsection{Feasibility}
 
+\par While our aim seems to be quite feasible, we will nonetheless present some factors that may constitute an obstacle to our research or may limit it to an extent in some of its aspects.
+
+\medskip
+
+\par Firstly, \dots
+
+\medskip
+
+\par Afterwards, \dots
+
+
+
 % Comment on the feasibility of the research plans given its limited time frame and resources. Outline your plans for a feasibility study before starting e.g.\ major implementation work.
 
 \subsection{Beneficiaries}
 
-The outcome of this work will have an impact on the graph research community, as well as on developers/analysts who use such systems to perform their (graph) data analysis tasks. In detail, the results will provide insight as to whether an approach that involves distributed processing systems is needed, or if a more simple single-core implementation is more preferable.
+\par The outcome of this work will have an impact on the graph research community, as well as on the industry, where developers and analysts use such systems to perform their data analysis tasks. In detail, the results will provide insight as to whether an approach that involves distributed graph processing systems is needed, or if a more simple, single-core, implementation is more preferable. This will greatly benefit researchers and small to medium sized companies, since having such insight can potentially result to them saving time, effort and money.
+
+% For instance, a company may be advised by this 
+
+% both of which have the need for such computations, but probably not many resources.
 
 % Describe how the research will benefit other researchers in the field and in related disciplines. What will be done to ensure that they can benefit? 
 
 
 \section{Background} \label{background}
 
-Modern applications and services handle a vast amount of 
+\par Modern applications and services handle a vast amount of 
 The rise of interest in graph data has led the Lately there has been a lot of research around graph data processing due to the fact that 
 
 % Demonstrate a knowledge and understanding of past and current work in the subject area, including relevant references like this \cite{template}.
 
 % \section{Programme and Methodology} \label{methodology}
 \section{Methodology} \label{methodology}
+
+\par We will now present the way by which our research will be conducted; that is, how we plan to approach the problem stated in \hyperref[problem-statement]{Section 1.1}, as well as the steps that will be followed in order to fulfill our project's purpose.
 
 % \begin{itemize}
 %     \item Detail the methodology to be used in pursuit of the research and justify this choice.
@@ -179,12 +219,16 @@ The rise of interest in graph data has led the Lately there has been a lot of re
 
 \section{Evaluation} \label{evaluation}
 
+After having completed all steps and tasks mentioned in \hyperref[methodology]{Section 3},we will carry on to analysing and interpreting our results.
+
 % \begin{itemize}
 %     \item Describe the specific methods of data collection.
 %     \item Explain how you intent to analyse and interpret the results.
 % \end{itemize}
 
 \section{Expected Outcomes} \label{outcomes}
+
+We will now review what we hope to achieve through our research and discuss how our contribution will impact the graph research community, as well as companies or individual developers that perform graph data processing tasks.
 
 % Conclude your research proposal by addressing your predicted outcomes. What are you hoping to prove/disprove? Indicate how you envisage your research will contribute to debates and discussions in your particular subject area:
 
