@@ -18,6 +18,10 @@
 \usepackage{hyperref}
 \usepackage{float}
 
+\definecolor{barblue}{RGB}{153,204,254}
+\definecolor{groupblue}{RGB}{51,102,254}
+\definecolor{linkred}{RGB}{165,0,33}
+
 \newdateformat{monthyeardate}{%
   \monthname[\THEMONTH] \THEYEAR}
 
@@ -67,8 +71,6 @@
 \begin{abstract}
 
 The aim of this project is to examine state-of-the-art graph processing systems and compare their performance and scalability in both local and parallel settings. More specifically, the project focuses on showing that often times scalability comes at a cost, and in many cases such an approach is not worth the time and effort. In our research we will prove this by conducting several experiments that will demonstrate that a single-core set-up outperforms executions on multi-core environments due to the parallelization overhead that incurs.
-
-
 
 \end{abstract}
 
@@ -204,6 +206,19 @@ The rise of interest in graph data has led the Lately there has been a lot of re
 
 \par We will now present the way by which our research will be conducted; that is, how we plan to approach the problem stated in \hyperref[problem-statement]{Section 1.1}, as well as the steps that will be followed in order to fulfill our project's purpose.
 
+\subsection{Approach}
+
+\par At first,
+
+\subsection{Graph Processing Systems}
+
+
+\subsection{Algorithms}
+
+\subsection{Environment Settings}
+
+\subsection{Limitations} \label{limitations}
+
 % \begin{itemize}
 %     \item Detail the methodology to be used in pursuit of the research and justify this choice.
 %     \item Describe your contributions and novelty and where you
@@ -220,6 +235,8 @@ The rise of interest in graph data has led the Lately there has been a lot of re
 \section{Evaluation} \label{evaluation}
 
 After having completed all steps and tasks mentioned in \hyperref[methodology]{Section 3},we will carry on to analysing and interpreting our results.
+
+
 
 % \begin{itemize}
 %     \item Describe the specific methods of data collection.
@@ -241,10 +258,6 @@ We will now review what we hope to achieve through our research and discuss how 
 
 \section{Research Plan, Milestones and Deliverables} \label{milestones}
 
-\definecolor{barblue}{RGB}{153,204,254}
-\definecolor{groupblue}{RGB}{51,102,254}
-\definecolor{linkred}{RGB}{165,0,33}
-
 The project will be completed once the following tasks have been accomplished:
 \begin{itemize}
     \item Determining all systems that will be examined
@@ -261,85 +274,85 @@ Some concerns of the project are the following:
     \item Will we have access to more resources (e.g. a cluster)?
 \end{itemize}
 
-% \begin{figure}[H]
-% \begin{ganttchart}[
-%     y unit title=0.4cm,
-%     y unit chart=0.5cm,
-%     vgrid,hgrid,
-%     x unit=1.55mm,
-%     time slot format=isodate,
-%     title/.append style={draw=none, fill=barblue},
-%     title label font=\sffamily\bfseries\color{white},
-%     title label node/.append style={below=-1.6ex},
-%     title left shift=.05,
-%     title right shift=-.05,
-%     title height=1,
-%     bar/.append style={draw=none, fill=groupblue},
-%     bar height=.6,
-%     bar label font=\normalsize\color{black!50},
-%     group right shift=0,
-%     group top shift=.6,
-%     group height=.3,
-%     group peaks height=.2,
-%     bar incomplete/.append style={fill=green}
-%   ]{2018-06-01}{2018-08-16}
-%   \gantttitlecalendar{month=name}\\
-%   \ganttbar[
-%     progress=100,
-%     bar progress label font=\small\color{barblue},
-%     bar progress label node/.append style={right=4pt},
-%     bar label font=\normalsize\color{barblue},
-%     name=pp
-%   ]{Background Reading}{2018-06-01}{2018-06-14} \\
-% \ganttset{progress label text={}, link/.style={black, -to}}
-% \ganttgroup{Objective 1}{2018-06-14}{2018-06-30} \\
-% \ganttbar[progress=4, name=T1A]{Task A}{2018-06-14}{2018-06-21} \\
-% \ganttlinkedbar[progress=0]{Task B}{2018-06-21}{2018-06-30} \\
-% \ganttgroup{Objective 2}{2018-07-01}{2018-07-14} \\
-% \ganttbar[progress=15, name=T2A]{Task A}{2018-07-01}{2018-07-07} \\
-% \ganttlinkedbar[progress=0]{Task B}{2018-07-07}{2018-07-14} \\
-% \ganttgroup{Dissertation    }{2018-07-14}{2018-08-16} \\
-%   \ganttbar[progress=0]{Task A}{2018-07-14}{2018-08-16}
-%   \ganttset{link/.style={green}}
-%   \ganttlink[link mid=.4]{pp}{T1A}
-%   \ganttlink[link mid=.159]{pp}{T2A}
-% \end{ganttchart}
-% \caption{Gantt Chart of the activities defined for this project.}
-% \label{fig:gantt}
-% \end{figure}
+\begin{figure}[H]
+\begin{ganttchart}[
+    y unit title=0.4cm,
+    y unit chart=0.5cm,
+    vgrid,hgrid,
+    x unit=1.55mm,
+    time slot format=isodate,
+    title/.append style={draw=none, fill=barblue},
+    title label font=\sffamily\bfseries\color{white},
+    title label node/.append style={below=-1.6ex},
+    title left shift=.05,
+    title right shift=-.05,
+    title height=1,
+    bar/.append style={draw=none, fill=groupblue},
+    bar height=.6,
+    bar label font=\normalsize\color{black!50},
+    group right shift=0,
+    group top shift=.6,
+    group height=.3,
+    group peaks height=.2,
+    bar incomplete/.append style={fill=green}
+  ]{2018-06-01}{2018-08-16}
+  \gantttitlecalendar{month=name}\\
+  \ganttbar[
+    progress=100,
+    bar progress label font=\small\color{barblue},
+    bar progress label node/.append style={right=4pt},
+    bar label font=\normalsize\color{barblue},
+    name=pp
+  ]{Background Reading}{2018-06-01}{2018-06-14} \\
+\ganttset{progress label text={}, link/.style={black, -to}}
+\ganttgroup{Objective 1}{2018-06-14}{2018-06-30} \\
+\ganttbar[progress=4, name=T1A]{Task A}{2018-06-14}{2018-06-21} \\
+\ganttlinkedbar[progress=0]{Task B}{2018-06-21}{2018-06-30} \\
+\ganttgroup{Objective 2}{2018-07-01}{2018-07-14} \\
+\ganttbar[progress=15, name=T2A]{Task A}{2018-07-01}{2018-07-07} \\
+\ganttlinkedbar[progress=0]{Task B}{2018-07-07}{2018-07-14} \\
+\ganttgroup{Dissertation    }{2018-07-14}{2018-08-16} \\
+  \ganttbar[progress=0]{Task A}{2018-07-14}{2018-08-16}
+  \ganttset{link/.style={green}}
+  \ganttlink[link mid=.4]{pp}{T1A}
+  \ganttlink[link mid=.159]{pp}{T2A}
+\end{ganttchart}
+\caption{Gantt Chart of the activities defined for this project.}
+\label{fig:gantt}
+\end{figure}
 
-% \begin{table}[H]
-%     \begin{center}
-%         \begin{tabular}{|c|c|l|}
-%         \hline
-%         \textbf{Milestone} & \textbf{Week} & \textbf{Description} \\
-%         \hline
-%         $M_1$ & 2 & Feasibility study completed \\
-%         $M_2$ & 5 & First prototype implementation completed \\
-%         $M_3$ & 7 & Evaluation completed \\
-%         $M_4$ & 10 & Submission of dissertation \\
-%         \hline
-%         \end{tabular} 
-%     \end{center}
-%     \caption{Milestones defined in this project.}
-%     \label{fig:milestones}
-% \end{table}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|l|}
+        \hline
+        \textbf{Milestone} & \textbf{Week} & \textbf{Description} \\
+        \hline
+        $M_1$ & 2 & Feasibility study completed \\
+        $M_2$ & 5 & First prototype implementation completed \\
+        $M_3$ & 7 & Evaluation completed \\
+        $M_4$ & 10 & Submission of dissertation \\
+        \hline
+        \end{tabular} 
+    \end{center}
+    \caption{Milestones defined in this project.}
+    \label{fig:milestones}
+\end{table}
 
-% \begin{table}[H]
-%     \begin{center}
-%         \begin{tabular}{|c|c|l|}
-%         \hline
-%         \textbf{Deliverable} & \textbf{Week} & \textbf{Description} \\
-%         \hline
-%         $D_1$ & 6 & Software tool for \dots\\
-%         $D_2$ & 8 & Evaluation report on \dots\\
-%         $D_3$ & 10 & Dissertation \\
-%         \hline
-%         \end{tabular} 
-%     \end{center}
-%     \caption{List of deliverables defined in this project.}
-%     \label{fig:deliverables}
-% \end{table}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|l|}
+        \hline
+        \textbf{Deliverable} & \textbf{Week} & \textbf{Description} \\
+        \hline
+        $D_1$ & 6 & Software tool for \dots\\
+        $D_2$ & 8 & Evaluation report on \dots\\
+        $D_3$ & 10 & Dissertation \\
+        \hline
+        \end{tabular} 
+    \end{center}
+    \caption{List of deliverables defined in this project.}
+    \label{fig:deliverables}
+\end{table}
 
 
 %                Now build the reference list
