@@ -230,36 +230,50 @@ Date: \today
 \par We now move on to mentioning specifics with regards to the systems and tasks that will be under consideration in \hyperref[graph-proc]{Section 3.2}  and \hyperref[algos]{Section 3.3}, respectively.
 
 
-\subsection{Graph Processing Systems} \label{graph-proc}
+\subsection{Datasets} \label{datasets}
 
-\par Initially, we aim at examining the following graph processing systems:
-
-\begin{itemize}
-
-	\item Apache Flink \cite{flink}
-	\item Apache Giraph \cite{giraph}
-	\item Apache Spark \cite{spark}
-
-\end{itemize}
-
-\par The basis for our selection of graph processing systems is strictly their popularity \cite{survey}.
+\par Write about datasets used - see EmptyHeaded paper
 
 \medskip
 
-\par Afterwards, a secondary goal is to also carry out our tasks using graph database systems. In case we have time to consider this category of systems, we hope to test the following systems:
+\par Additionally, we might consider generating datasets with different distributions of their edges - uniform, skewed, etc.
+
+
+
+\subsection{Graph Processing Systems} \label{graph-proc}
+
+\par Initially, we aim at examining the graph processing systems stated below. Note that they are mentioned in order of interest, that is, ... ***
 
 \begin{itemize}
 
-	\item Neo4j \cite{neo4j}
-	\item OrientDB \cite{orientdb}
-	\item ArangoDB \cite{arangodb}
+	\item Timely Dataflow *** add citation
+	\item GraphLab *** add citation
+	\item Apache Flink (Gelly) \cite{flink}
+	\item Apache Spark \cite{spark}
+	\item Apache Giraph \cite{giraph}
+
+\end{itemize}
+
+\par The basis for our selection of graph processing systems is their popularity \cite{survey} and ***.
+
+\medskip
+
+\par Afterwards, a secondary goal is to also carry out our tasks using graph database systems. In case we have time to consider this category of systems, we hope to test at least one of the following systems. Again, we order the systems based on how interested we are in testing them ***.
+
+\begin{itemize}
+
 	\item EmptyHeaded \cite{emptyheaded} \cite{emptyheadedgit}
+	\item Neo4j \cite{neo4j}
+	\item OrientDB \cite{orientdb} (maybe)
+	\item ArangoDB \cite{arangodb} (maybe)
 
 \end{itemize}
 
 \subsection{Algorithms} \label{algos}
 
-\par Similarly to the choice of graph processing systems, our choice of algorithms is based on the popularity of the task type \cite{survey}. As such, we will consider the following types of computations:
+\par Similarly to the choice of graph processing systems, our choice of algorithms is based on the popularity of the type of task \cite{survey}. As such, we will consider the following types of computations:
+
+*** Add examples for each type of algorithm
 
 \begin{itemize}
 	\item Finding connected components
@@ -299,6 +313,19 @@ TODO.
 \medskip
 
 \par TODO.
+
+\medskip
+
+\par Question(s): 
+
+\begin{itemize}
+	
+	\item Provide exact evaluation metrics now?
+	\item Should I focus on throughput as well or just \textbf{latency}?	
+	
+\end{itemize}
+
+
 
 % \begin{itemize}
 %     \item Describe the specific methods of data collection.
