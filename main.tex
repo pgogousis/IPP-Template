@@ -206,7 +206,19 @@ Date: \today
 
 \section{Background} \label{background}
 
-\par TODO.
+\par As we already mentioned in \hyperref[introduction]{Section 1}, it has been a while since the research community and companies in the industry have been dealing with immense amounts of data. Today's approaches feature the use of distributed big data processing systems, given that other solutions may be extremely slow in terms of the time needed to process the data or carry out the computational tasks. Graph computation problems account for a big partition of the different challenges that are faced. For this reason, several systems have been built that specialise in heavy graph data processing tasks. The systems that will be considered in our research (\hyperref[graph-proc]{Section 3.3}) can be split into two categories; distributed graph data processing systems, and graph database systems. We will now consider both of these types of systems and discuss some of their aspects that are relevant to our research.
+
+\subsection{Distributed Graph Data Processing Systems}
+
+TODO
+
+***
+such as Apache Flink Gelly \cite{flink}, Apache Spark GraphX \cite{spark,graphxpaper}, Apache Giraph \cite{giraph}, GraphLab \cite{graphlab}, PowerGraph \cite{powergraph}, Naiad \cite{naiad}, etc. 
+
+
+\subsection{Graph Database Systems}
+
+While specialised graph data processing systems offer a solution to graph computation tasks, usually individuals have to familiarise themselves with the programming model that the system follows, as well as spend time to learn its programming interface in order to fulfill their tasks. To tackle interaction with low-level primitive systems, other systems were developed, offering a more high-level solution that didn't involve getting this technical in order to complete a graph computational task. 
 
 % \par Modern applications and services handle a vast amount of data
 
@@ -227,18 +239,32 @@ Date: \today
 
 \medskip
 
-\par We now move on to mentioning specifics with regards to the systems and tasks that will be under consideration in \hyperref[graph-proc]{Section 3.2}  and \hyperref[algos]{Section 3.3}, respectively.
-
+\par We now move on to mentioning specifics with regards to the datasets, systems and tasks that will be under consideration in \hyperref[datasets]{Section 3.2} \hyperref[graph-proc]{Section 3.3}, and \hyperref[algos]{Section 3.4}, respectively.
 
 \subsection{Datasets} \label{datasets}
 
-\par Write about datasets used - see EmptyHeaded paper
+\par Given that we aim at covering as many cases as possible, in order to provide broad and useful insights through our work, we consider several datasets with different characteristics; that is, different number of nodes, edges, edge distributions, etc. The datasets chosen are publicly available and are commonly used within the graph research field. The datasets and their characteristics that we will use to conduct our research are as follows:
+
+\bigskip
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|r|r|l|}
+	\hline
+	\multicolumn{1}{|c|}{\textbf{Dataset}} & \multicolumn{1}{c|}{\textbf{Nodes}} & \multicolumn{1}{c|}{\textbf{Edges}} & \multicolumn{1}{c|}{\textbf{Description}} \\ \hline
+	\hline
+	ego-Gplus \cite{snapnets} & 107,614 & 13,673,453 & Social circles from Google+ \\ \hline
+	soc-Pokec \cite{snapnets} & 1,632,803 & 30,622,564 & Pokec online social network \\ \hline
+	cit-Patents \cite{snapnets} & 3,774,768 & 16,518,948 & Citation network among US Patents \\ \hline
+	twitter \cite{twitter} & 41,700,000 & 1,470,000,000 & Twitter follower network \\ \hline
+	\end{tabular}
+	\caption{Datasets considered along with their characteristics}
+	\label{dataset-table}
+\end{table}
 
 \medskip
 
-\par Additionally, we might consider generating datasets with different distributions of their edges - uniform, skewed, etc.
-
-
+\par Additionally, if needed, we might consider generating datasets with different distributions for their edges, for example, uniform, skewed, and others.
 
 \subsection{Graph Processing Systems} \label{graph-proc}
 
@@ -291,7 +317,7 @@ Date: \today
 
 \subsection{Limitations} \label{limitations}
 
-TODO.
+Currently, 
 
 % \begin{itemize}
 %     \item Detail the methodology to be used in pursuit of the research and justify this choice.
@@ -324,8 +350,6 @@ TODO.
 	\item Should I focus on throughput as well or just \textbf{latency}?	
 	
 \end{itemize}
-
-
 
 % \begin{itemize}
 %     \item Describe the specific methods of data collection.
@@ -459,4 +483,3 @@ TODO.
 \bibliography{main}       % bib file(s).
 }
 \end{document}
-
