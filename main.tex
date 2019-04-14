@@ -75,7 +75,7 @@
 %                       
 \begin{abstract}
 
-The aim of this project is to examine state-of-the-art graph processing systems and compare their performance and scalability in both local and parallel settings. More specifically, the project focuses on showing that often times scalability comes at a cost, and in many cases such an approach is not worth the time and effort. In our research we will prove this by conducting several experiments that will demonstrate that a single-core set-up outperforms executions on multi-core environments due to the parallelization overhead that incurs.
+The aim of this project is to examine state-of-the-art graph processing systems and compare their performance and scalability in both local and parallel settings. More specifically, the project focuses on showing that oftentimes scalability comes at a cost, and in many cases such an approach is not worth the time and effort. In our research we will prove this by conducting several experiments that will demonstrate that a single-node set-up outperforms executions in multi-node environments due to the parallelization overhead that incurs.
 
 \end{abstract}
 
@@ -118,7 +118,7 @@ Date: \today
 
 \par While research on benchmarking graph processing systems has provided information about the performance of these graph processing systems, it tends to be quite specific and concerns certain aspects of these frameworks. This project was motivated by the need for a more thorough investigation that covers a broader range of cases and systems. Our research aims at showing that scalability is not always the best approach by performing various experiments under different conditions, that is, measuring performance using many different algorithms, systems, and other parameters. The main goal is to demonstrate how in many cases running such tasks with graph processing systems in single-node settings (execution on one physical machine, e.g. a laptop) is more efficient performance-wise than distributed and multi-node settings (execution on multiple physical machines, e.g. a distributed system, or a cluster).
 
-\par We will now continue to breaking down our problem and briefly mentioning some of its aspects. In \hyperref[background]{Section 2} we will discuss necessary and relevant knowledge to the problem's domain. Afterwards, we consider specific parts of our research and analyse steps in \hyperref[methodology]{Section 3}. We then focus on the evaluation of our results which will be detailed in \hyperref[evaluation]{Section 4} and highlight what we expect to see in our results in \hyperref[outcomes]{Section 5}. Lastly, we state a detailed report of the project's plan, its objectives and the deliverables in \hyperref[milestones]{Section 6}.
+\par In what follows we modularise our problem and briefly mention some of its aspects (Sections 1.1 through 1.6). Next, in \hyperref[background]{Section 2}, we discuss necessary and relevant knowledge to the problem's domain. Afterwards, we consider specific parts of our research and analyse steps in \hyperref[methodology]{Section 3}. Subsequently, we focus on the evaluation of our results which will be detailed in \hyperref[evaluation]{Section 4}, and we highlight what we expect to see in our results in \hyperref[outcomes]{Section 5}. Finally, in \hyperref[milestones]{Section 6}, we state a detailed report of the project's plan, its objectives and the deliverables.
 
 % \begin{itemize}
 %     \item Establish the general subject area.
@@ -130,7 +130,7 @@ Date: \today
 
 \subsection{Problem Statement} \label{problem-statement}
 
-\par While there is research on individual graph processing systems that measures how these systems perform, there has not been extensive work that exposes a more objective benchmark for these systems' performance, such as one that features the use of a wide variety of algorithms, multiple set-ups that range from one to many cores, as well as more realistic use cases. Our work focuses on taking into account all these parameters and will try to provide a more broad benchmark that will be able to better indicate if such systems are worth using and, if so, under which settings.
+\par While there is research on individual graph processing systems that measures how these systems perform, there has not been extensive work exposing a more objective benchmark for these systems' performance; such a benchmark would feature the use of a wide variety of algorithms, multiple set-ups ranging from one to many cores, as well as more realistic use cases. Our work focuses on taking into account all these parameters and aims to provide a broader benchmark that will be capable of better indicating if such systems are worth using and, if so, under which settings.
 
 % \begin{itemize}
 %     \item Answer the question:''What is the gap that needs to be filled?"
@@ -142,9 +142,9 @@ Date: \today
 
 \subsection{Research Hypothesis and Objectives} \label{hypothesis}
 
-\par Our hypothesis is that graph processing systems do not scale as well as they claim to do for common tasks. We were able to identify these common tasks and other useful information form a survey on graph processing \cite{survey}. Moreover, this survey revealed how the graph research community and the industry perform their analysis tasks, as well as what data they use, what kind of algorithms they run, and so forth.
+\par Our hypothesis is that graph processing systems do not scale as well as they claim to do for common tasks. We were able to identify these common tasks and other useful information from a survey on graph processing \cite{survey}. Moreover, this survey revealed how the graph research community and the industry perform their analysis tasks, as well as what data they use, what kind of algorithms they run, and so forth.
 
-\par We aim to support our hypothesis by conducting experiments that will demonstrate how the selected graph processing systems perform in single-core settings, as well as when scaled up, and hope to show through our results that for common tasks executions in single-core settings perform better.
+\par We aim to support our hypothesis by conducting experiments that will demonstrate how the selected graph processing systems perform in single-node settings, as well as when scaled up, and hope to show through our results that for common tasks executions in single-node settings perform better.
 
 % Identify the overall aims of the project and the individual measurable objectives against which you would wish the outcome of the work to be assessed. Clearly spell out any research hypothesis you are following.
 
@@ -152,7 +152,7 @@ Date: \today
 
 \subsection{Timeliness and Novelty}
 
-\par As also discussed in \hyperref[introduction]{Section 1}, the graph processing domain is constantly growing and becoming more popular, given that more and more researchers and companies analyse graph data and perform graph processing tasks \cite{facebook-trillion, twitter-sentiment}. Consequently, carrying out this research at this point is crucial since it will provide insights and indications as to how analyses and graph processing tasks can be performed, which will greatly impact the way researchers and developers approach their problems.
+\par The graph processing domain is constantly growing and becoming more popular, given that more and more researchers and companies analyse graph data and perform graph processing tasks \cite{facebook-trillion, twitter-sentiment}. Consequently, carrying out this research at this point is crucial since it will provide insights and indications as to how analyses and graph processing tasks can be performed, which will greatly impact the way researchers and developers approach their problems.
 
 % Explain why the proposed research is of sufficient timeliness and novelty
 
@@ -161,16 +161,16 @@ Date: \today
 % Having an indication as to what resources an individual may need before performing their graph data analysis tasks or research is of great significance. 
 
 
-\par Possessing insights and information related to various aspects of a researcher's or developer's approach for graph data processing tasks is of great significance. We aim to conduct a thorough experimentation that will cover widely used systems and processing tasks, as reported in \cite{survey}, some of which are highly likely to be similar to the intended research or analysis task. As such, our work will extend current research with deeper insights and will help in the process of the decision making with regards to the chosen technologies that will be used, the resources required, the expected performance, and others, which in turn will result in better approaching a problem and providing more timely and efficient solutions.
+\par Possessing insights and information related to various aspects of a researcher's or developer's approach for graph data processing tasks is of great importance. This is so, because insights and information help facilitate better (in terms of performance) and less costly (in terms of resources used) approaches. We aim to conduct a thorough experimentation that will cover widely used systems and processing tasks, as reported in \cite{survey}, some of which are likely to be similar to the intended research or analysis task. As such, our work will extend current research by yielding deeper insights, and will help in the process of the decision making with regards to the technologies that will be used, the required resources, the expected performance, and other aspects, which in turn will result in better approaching a problem and providing more timely and efficient solutions.
 
 
 % The proposal should demonstrate the originality of your intended research. You should therefore explain why your research is important (for example, by explaining how your research builds on and adds to the current state of knowledge in the field or by setting out reasons why it is timely to research your proposed topic) and providing details of any immediate applications, including further research that might be done to build on your findings.
 
 \subsection{Feasibility} \label{feasibility}
 
-\par Firstly, an important factor to take into account regards the configurations of the graph processing systems used. In detail, while the single-node approach is fairly easy to implement, the scaled versions require more attention, as they demand more resources. The difficulty we might face concerns our resources, given that as it is, they are limited to 8 cores. Obtaining access to a cluster environment or some computational nodes will significantly help our research, although, in case such thing cannot be arranged, our work will be limited to single-node experimentation.
+\par Firstly, an important factor to take into account regards the configurations of the graph processing systems used. In detail, while the single-node approach is fairly easy to implement, the scaled versions require more attention, as they demand more resources. The difficulty we might face concerns our resources, given that as it is, they are limited to 8 cores. Obtaining access to a cluster environment or some computational nodes will significantly help our research, although, in case such a thing cannot be arranged, our work will be limited to single-node experimentation.
 
-\par Afterwards, a secondary goal of our work is to indicate how some tasks can be carried out with the use of higher-level systems, such as graph database systems \cite{emptyheaded, emptyheadedgit, neo4j}.  Examining such systems and comparing results against graph processing systems will also provide very useful information, and will result in our work covering a broader range of cases, which of course also grows the size of our audience. This part of our research will be carried out in case we manage to complete our main goal within the expected time frame. Therefore, the limiting factor to this secondary task is whether or not we have enough time left once we complete our primary objective.
+\par Afterwards, a secondary goal of our work is to indicate how some tasks can be carried out with the use of higher-level systems, such as graph database systems \cite{emptyheaded, emptyheadedgit, neo4j}.  Examining such systems and comparing results against graph processing systems will also provide very useful information, and will result in our work covering a broader range of cases, which of course also increases the size of our audience. This part of our research will be carried out in case we manage to complete our main goal within the expected time frame. Therefore, the limiting factor to this secondary task is whether or not we have enough time left once we complete our primary objective.
 
 
 
@@ -180,9 +180,9 @@ Date: \today
 
 \subsection{Beneficiaries}
 
-\par Our work will impact the graph research community, as well as the industry, where developers and analysts use graph processing systems to perform their data analysis tasks. In detail, given that the results will provide insight as to whether a scaled approach that involves distributed graph processing systems is needed, or if a more simple, single-core, implementation is more preferable, researchers and small to medium sized companies can benefit from possessing such information, because it can potentially result in them saving time, effort, and money. 
+\par Our work will impact the graph research community, as well as the industry, where developers and analysts use graph processing systems to perform their data analysis tasks. In detail, given that the results will provide insight as to whether (i) a scaled approach involving distributed graph processing systems is needed, or if (ii) a more simple, single-node, implementation is more preferable, researchers and small to medium sized companies can benefit from possessing such information because it can potentially result in them saving time, effort, and money.
 
-\par This is due to the fact that scaled approaches demand more resources, which often come at a big cost. Additionally, setting up and managing these resources requires a lot of time and effort. Therefore, having a priori knowledge about the resources needed for a specific task, or knowing the performance of an algorithm that might be similar to the one being developed, for instance, can benefit a project's planning and budget.
+\par This is due to the fact that scaled approaches demand more resources, which often come at a big cost. Additionally, setting up and managing these resources requires a lot of time and effort. Therefore, having a-priori knowledge about the resources needed for a specific task, or knowing the performance of an algorithm that might be similar to the one being developed, for instance, can benefit a project's planning and budget.
 
 % For instance, a company may be advised by this 
 
@@ -195,11 +195,11 @@ Date: \today
 
 \par While there has been extensive research in the field of graph processing systems, work on benchmarking and examining performance of these systems has been limited in certain of its aspects. 
 
-\par One important aspect concerns the way graph processing systems' performance is measured. More specifically, althought when proposing systems, such as in \cite{pregel,graphxpaper, powergraph}, authors do showcase their implementations' performance, the cases considered mainly focus on multi-node configurations and do not provide a comparison against single-node settings. Additionally, the experiments conducted tend to feature mostly large datasets, which as seen in \cite{survey} is not always the case.
+\par One important aspect concerns the way graph processing systems' performance is measured. More specifically, although when proposing systems, such as in \cite{pregel,graphxpaper, powergraph}, authors do showcase their implementations' performance, the cases considered mainly focus on multi-node configurations and do not provide a comparison against single-node settings. Additionally, the experiments conducted tend to feature mostly large datasets, which as seen in \cite{survey} is not always the case.
 
-\par Another limiting factor in current research is the fact that although there have been researchers that have benchmarked graph processing systems \cite{benchmarking-vision, how-well, graphalytics, scalability-cost}, in their work they consider and compare the performance of various systems against each other; instead, our focus is to show how executing tasks on single-core settings is at least as efficient as executing them on multi-node settings, as well as in many cases even better.
+\par Another limiting factor in current research is the fact that although there have been researchers that have benchmarked graph processing systems \cite{benchmarking-vision, how-well, graphalytics, scalability-cost}, in their work they consider and compare the performance of various systems against each other; instead, our focus is to show how executing tasks on single-node settings is at least as efficient as executing them on multi-node settings, as well as in many cases even better.
 
-\par Lastly, regarding the part of our research that may consider also comparing graph database systems' performance, there has been limited research, such as \cite{traversal-benchmarking}, since the implementations considered \cite{emptyheaded} are very recent.
+\par Lastly, regarding the part of our research that may consider also comparing graph database systems' performance, there has been limited research, such as the work done in \cite{traversal-benchmarking}, since the implementations considered in our work, for instance \cite{emptyheaded}, are very recent.
 
 % \par The research community and companies in the industry have been dealing with immense amounts of data. Today's approaches feature the use of distributed big data processing systems, given that other solutions may be extremely slow in terms of the time needed to process the data or carry out the computational tasks. Graph computation problems account for a big partition of the different challenges that are faced. For this reason, several systems have been built that specialise in heavy graph data processing tasks. The systems that will be considered in our research (\hyperref[graph-proc]{Section 3.3}) can be split into two categories; graph data processing systems, and graph database systems. We will now consider both of these types of systems and discuss some of their aspects that are relevant to our research.
 
@@ -232,11 +232,11 @@ Date: \today
 
 \subsection{Approach} \label{approach}
 
-\par The core idea is to perform several graph data processing tasks (\hyperref[algos]{Section 3.4}), with the use of different datasets that range from a hundred thousand to forty million vertices (\hyperref[datasets]{Section 3.2}), on selected graph processing systems (\hyperref[graph-proc]{Section 3.3}). Once we have executed all these different experiments, we will then compare their results against each other.
+\par The core idea is to perform several graph data processing tasks (\hyperref[algos]{Section 3.4}), with the use of different datasets that range from a hundred thousand to forty million vertices (\hyperref[datasets]{Section 3.2}), on selected graph processing systems (\hyperref[graph-proc]{Section 3.3}). Once we execute all these different experiments, we will compare their results against each other.
 
 \subsection{Datasets} \label{datasets}
 
-\par Given that we aim at covering as many cases as possible, in order to provide broad and useful insights through our work, we consider several datasets with different characteristics; that is, different number of nodes, edges, edge distributions, etc. The datasets chosen are publicly available and are commonly used within the graph research field. In \hyperref[dataset-table]{Table 1} we present the datasets we intend to use in our experiments and provide their characteristics.
+\par Given that we aim at covering as many cases as possible, in order to provide broad and useful insights through our work, we consider several datasets with different characteristics; that is, different numbers of nodes, edges, edge distributions, etc. The datasets chosen are publicly available and are commonly used within the graph research field. In \hyperref[dataset-table]{Table 1} we present the datasets we intend to use in our experiments and provide their characteristics.
 
 \bigskip
 
@@ -259,7 +259,7 @@ Date: \today
 
 \subsection{Graph Processing Systems} \label{graph-proc}
 
-\par Initially, we aim at examining the graph processing systems stated below. Note that the systems are mentioned in order of their interest to us, while those marked with an asterisk (*) are not our main focus and may be omitted in case we are limited by time.
+\par Initially, we aim at examining the graph processing systems stated below. Note that the systems are arranged in order of our interest, while those marked with an asterisk (*) are not our main focus and may be omitted in case we are limited by time.
 
 \begin{itemize}
 
@@ -273,7 +273,7 @@ Date: \today
 
 \par The basis for our selection of graph processing systems was their popularity \cite{survey}, as well as their timeliness.
 
-\par After this, as discussed in \hyperref[feasibility]{Section 1.5}, our secondary goal is to also carry out our tasks using graph database systems. In case we have time to consider this category of systems, we hope to test at least one of the following systems. Again, we order the systems based on how interested we are in examining them,their popularity and how recent they are.
+\par After this, as discussed in \hyperref[feasibility]{Section 1.5}, our secondary goal is to also carry out our tasks using graph database systems. In case we have time to consider this category of systems, we hope to test at least one of the following systems. Again, we order the systems based on how interested we are in examining them, their popularity, and how recent they are.
 
 \begin{itemize}
 
@@ -300,11 +300,11 @@ Date: \today
 
 \subsection{Environment Settings}
 
-\par We aim at providing two types of environment settings for our experimentations. Firstly, all experiments will be executed on a single-node setting. Afterwards, depending on the resources, experiments will also be executed in scaled environments, which will consist of multiple nodes. The scaling factor cannot be determined yet since it is dependent on the amount of resources that we will have in our availability.
+\par We aim at providing two types of environment settings for our experimentations. Firstly, all experiments will be executed on a single-node setting. Afterwards, depending on the resources, experiments will also be executed in scaled environments, which will consist of multiple nodes. The scaling factor cannot be determined yet since it is dependent on the amount of resources that we will have available to us.
 
 \subsection{Limitations} \label{limitations}
 
-Currently, we are limited from two factors. At first, we have not yet gained access to a cluster or distributed environment so that we can perform our experiments using the graph data processing systems in their scaled configuration. Then, another factor that limits the scope of our work is time, since the timeline for the completion of our project spans from June to mid August.
+Currently, we are limited by two factors. First, we have not yet gained access to a cluster or distributed environment in order to perform our experiments using the graph data processing systems in their scaled configuration. Then, another factor that limits the scope of our work is time, since the timeline for the completion of our project spans from June to mid August.
 
 % \begin{itemize}
 %     \item Detail the methodology to be used in pursuit of the research and justify this choice.
@@ -343,7 +343,7 @@ Currently, we are limited from two factors. At first, we have not yet gained acc
 
 \section{Milestones, Deliverables and Research Plan} \label{milestones}
 
-\par Lastly, we outline our proposed project's preset milestones in \hyperref[table:milestones]{Table 2}, deliverables in \hyperref[table:deliverables]{Table 3}, as well as a timeline of all tasks in \hyperref[fig:gantt]{Figure 1}.
+\par Finally, we outline our proposed project's preset milestones in \hyperref[table:milestones]{Table 2}, deliverables in \hyperref[table:deliverables]{Table 3}, as well as a timeline of all tasks in \hyperref[fig:gantt]{Figure 1}.
 
 
 \begin{table}[H]
@@ -457,10 +457,10 @@ Currently, we are limited from two factors. At first, we have not yet gained acc
 	\ganttgroup{Main Experimentation}{2}{5} \\
 	\ganttbar[
     name=single
-  ]{Single-Core Config.}{2}{3} \\
+  ]{Single-Node Config.}{2}{3} \\
   \ganttbar[
     name=multi
-	]{Multi-Core Config.}{4}{5} \\
+	]{Multi-Node Config.}{4}{5} \\
 	\ganttgroup{Secondary Experimentation}{6}{7} \\
 	\ganttbar[
     name=db
